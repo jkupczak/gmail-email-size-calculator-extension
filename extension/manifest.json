@@ -1,0 +1,44 @@
+{
+
+  "manifest_version": 2,
+
+  "name": "Gmail Email Size Calculator",
+  "description": "Calculate the size of your emails in Gmail.",
+  "version": "0.0.1",
+
+
+  "icons": {
+    "128": "icons/icon-192.png"
+  },
+  "browser_action": {
+    "default_icon": "icons/icon-192.png",
+    "default_title": "Gmail Email Size Calculator"
+  },
+
+
+  "web_accessible_resources": [
+    "js/*",
+    "css/*",
+    "icons/*"
+  ],
+  "permissions": [
+    "*://*/*"
+  ],
+
+  "background": { "scripts": ["bg.js"] },
+  "content_scripts": [
+
+        {
+          "matches": ["*://mail.google.com/*"],
+          "js": [
+            "js/gmail.js"
+          ],
+          "css": [
+            "css/gmail.css"
+          ],
+          "run_at": "document_idle"
+        }
+
+
+  ]
+}
